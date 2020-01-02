@@ -1,0 +1,6 @@
+framework module PPPPShare {
+  umbrella header "PPPPShare.h"
+
+  export *
+  module * { export * }
+}
