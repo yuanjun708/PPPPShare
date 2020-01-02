@@ -142,7 +142,6 @@ Pod::Spec.new do |spec|
   spec.subspec 'Facebook' do |fb|
       fb.source_files = 'PPPPShareSDK/SocialLibraries/Facebook/**/*.{h,m}'
       fb.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
-      fb.static_framework = true
       fb.vendored_frameworks = 'PPPPShareSDK/SocialLibraries/Facebook/libSocialFacebook.a'
       fb.vendored_frameworks = 'PPPPShareSDK/SocialLibraries/Facebook/Bolts.framework'
       fb.vendored_frameworks = 'PPPPShareSDK/SocialLibraries/Facebook/FBSDKCoreKit.framework'
