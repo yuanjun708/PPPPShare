@@ -137,17 +137,13 @@ Pod::Spec.new do |spec|
   #是否使用静态库。如果podfile指明了use_frameworks!命令，但是pod仓库需要使用静态库则需要设置
   spec.static_framework = true
   spec.frameworks       = 'UIKit','Foundation'
-  spec.vendored_frameworks = 'PPPPShareSDK/PPPPShare.framework'
+  spec.vendored_frameworks = 'PPPPShareSDK/PPPPShareFrameworks/PPPPShare.framework'
 
   spec.subspec 'Facebook' do |fb|
       fb.source_files = 'PPPPShareSDK/SocialLibraries/Facebook/**/*.{h,m}'
       fb.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
-      fb.vendored_frameworks = 'PPPPShareSDK/SocialLibraries/Facebook/libSocialFacebook.a'
-      fb.vendored_frameworks = 'PPPPShareSDK/SocialLibraries/Facebook/Bolts.framework'
-      fb.vendored_frameworks = 'PPPPShareSDK/SocialLibraries/Facebook/FBSDKCoreKit.framework'
-      fb.vendored_frameworks = 'PPPPShareSDK/SocialLibraries/Facebook/FBSDKLoginKit.framework'
-      fb.vendored_frameworks = 'PPPPShareSDK/SocialLibraries/Facebook/FBSDKMessengerShareKit.framework'
-      fb.vendored_frameworks = 'PPPPShareSDK/SocialLibraries/Facebook/FBSDKShareKit.framework'
+      fb.vendored_libraries = 'PPPPShareSDK/SocialLibraries/Facebook/libSocialFacebook.a'
+      fb.vendored_frameworks = 'PPPPShareSDK/SocialLibraries/Facebook/Bolts.framework','PPPPShareSDK/SocialLibraries/Facebook/FBSDKCoreKit.framework','PPPPShareSDK/SocialLibraries/Facebook/FBSDKLoginKit.framework','PPPPShareSDK/SocialLibraries/Facebook/FBSDKMessengerShareKit.framework','PPPPShareSDK/SocialLibraries/Facebook/FBSDKShareKit.framework'
   end
 
 end
