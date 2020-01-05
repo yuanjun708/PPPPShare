@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "PPPPShare"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.2"
   spec.summary      = "share SDK for multiple platforms"
 
   # This description is used to generate tags and improve search results.
@@ -81,7 +81,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/yuanjun708/PPPPShare.git", :tag => "0.0.1" }
+  spec.source       = { :git => "https://github.com/yuanjun708/PPPPShare.git", :tag => "0.0.2" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -137,13 +137,15 @@ Pod::Spec.new do |spec|
   #是否使用静态库。如果podfile指明了use_frameworks!命令，但是pod仓库需要使用静态库则需要设置
   spec.static_framework = true
   spec.frameworks       = 'UIKit','Foundation'
-  # spec.vendored_framework = 'PPPPShareSDK/PPPPShare.framework'
-  spec.vendored_library = 'PPPPShareSDK/SocialLibraries/Facebook/libSocialFacebook.a'
-  spec.vendored_frameworks = 'PPPPShareSDK/PPPPShare.framework','PPPPShareSDK/SocialLibraries/Facebook/Bolts.framework','PPPPShareSDK/SocialLibraries/Facebook/FBSDKCoreKit.framework','PPPPShareSDK/SocialLibraries/Facebook/FBSDKLoginKit.framework','PPPPShareSDK/SocialLibraries/Facebook/FBSDKMessengerShareKit.framework','PPPPShareSDK/SocialLibraries/Facebook/FBSDKShareKit.framework'
+  spec.vendored_framework = 'PPPPShareSDK/Core/PPPPShare.framework'
+  # spec.vendored_library = 'PPPPShareSDK/SocialLibraries/Facebook/libSocialFacebook.a'
+  # spec.vendored_frameworks = 'PPPPShareSDK/PPPPShare.framework','PPPPShareSDK/SocialLibraries/Facebook/Bolts.framework','PPPPShareSDK/SocialLibraries/Facebook/FBSDKCoreKit.framework','PPPPShareSDK/SocialLibraries/Facebook/FBSDKLoginKit.framework','PPPPShareSDK/SocialLibraries/Facebook/FBSDKMessengerShareKit.framework','PPPPShareSDK/SocialLibraries/Facebook/FBSDKShareKit.framework'
 
   spec.subspec 'Facebook' do |fb|
       fb.source_files = 'PPPPShareSDK/SocialLibraries/Facebook'
-      # fb.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
+      fb.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
+      fb.vendored_library = 'PPPPShareSDK/SocialLibraries/Facebook/libSocialFacebook.a'
+      fb.vendored_frameworks = 'PPPPShareSDK/SocialLibraries/Facebook/Bolts.framework','PPPPShareSDK/SocialLibraries/Facebook/FBSDKCoreKit.framework','PPPPShareSDK/SocialLibraries/Facebook/FBSDKLoginKit.framework','PPPPShareSDK/SocialLibraries/Facebook/FBSDKMessengerShareKit.framework','PPPPShareSDK/SocialLibraries/Facebook/FBSDKShareKit.framework'
   end
 
 end
